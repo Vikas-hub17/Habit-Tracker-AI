@@ -11,15 +11,14 @@ const Nav = styled.nav`
 `;
 
 const NavLink = styled(Link)`
-  color: #fff;
+  color: white;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.2rem;
   padding: 0.5rem 1rem;
-  transition: background-color 0.3s;
+  border-radius: 4px;
 
   &:hover {
     background-color: #0056b3;
-    border-radius: 4px;
   }
 `;
 
@@ -29,7 +28,6 @@ const Header = () => {
       <NavLink to="/">Home</NavLink>
       <NavLink to="/login">Login</NavLink>
       <NavLink to="/register">Register</NavLink>
-      <NavLink to="/dashboard">Dashboard</NavLink>
     </Nav>
   );
 };

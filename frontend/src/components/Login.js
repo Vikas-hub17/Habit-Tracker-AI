@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
@@ -63,15 +62,19 @@ const Login = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  // Hardcoded credentials
+  const validEmail = 'user@example.com';
+  const validPassword = 'password123';
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     setError('');
-
-    try {
-      const response = await axios.post('/api/auth/login', { email, password });
-      localStorage.setItem('token', response.data.token);
-      navigate('/dashboard');
-    } catch (err) {
+  
+    // Validate credentials
+    if (email === validEmail && password === validPassword) {
+      localStorage.setItem('isLoggedIn', 'true'); // Save login state
+      navigate('/dashboard'); // Redirect to Dashboard
+    } else {
       setError('Invalid email or password');
     }
   };
