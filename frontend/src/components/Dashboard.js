@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import { FaEdit, FaTrash, FaCheckCircle } from 'react-icons/fa';
+import {FaTrash, FaCheckCircle } from 'react-icons/fa';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 

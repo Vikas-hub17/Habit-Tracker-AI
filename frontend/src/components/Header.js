@@ -11,7 +11,7 @@ const Nav = styled.nav`
 `;
 
 const NavLink = styled(Link)`
-  color: white;
+  color: #fff;
   text-decoration: none;
   font-size: 1.2rem;
   padding: 0.5rem 1rem;
@@ -28,6 +28,7 @@ const Header = () => {
       <NavLink to="/">Home</NavLink>
       <NavLink to="/login">Login</NavLink>
       <NavLink to="/register">Register</NavLink>
+      <NavLink to="/dashboard">Dashboard</NavLink>
     </Nav>
   );
 };

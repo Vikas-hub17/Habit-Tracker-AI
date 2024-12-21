@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
@@ -13,74 +11,48 @@ const Container = styled.div`
 `;
 
 const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  background-color: #ffffff;
+  background: white;
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   width: 300px;
-`;
-
-const Title = styled.h2`
-  margin-bottom: 1rem;
-  color: #333;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Input = styled.input`
-  padding: 0.8rem;
   margin-bottom: 1rem;
+  padding: 0.8rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 1rem;
 `;
 
 const Button = styled.button`
   background-color: #28a745;
-  color: #fff;
+  color: white;
   padding: 0.8rem;
   border: none;
   border-radius: 4px;
-  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s;
 
   &:hover {
     background-color: #218838;
   }
 `;
 
-const Error = styled.p`
-  color: #ff0000;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-`;
-
 const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setError('');
-
-    try {
-      await axios.post('/api/auth/register', { name, email, password });
-      navigate('/');
-    } catch (err) {
-      setError('Registration failed');
-    }
+    console.log({ name, email, password });
   };
 
   return (
     <Container>
       <Form onSubmit={handleSubmit}>
-        <Title>Register</Title>
-        {error && <Error>{error}</Error>}
         <Input
           type="text"
           placeholder="Name"
