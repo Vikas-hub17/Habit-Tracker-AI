@@ -1,14 +1,19 @@
 const express = require('express');
-const cors = require('cors');
+const connectDB = require('./config/db');
 require('dotenv').config();
-const authRoutes = require('./routes/authRoutes');
-const habitRoutes = require('./routes/habitRoutes');
 
 const app = express();
 
-app.use(cors());
+// Connect to MongoDB
+connectDB();
+
 app.use(express.json());
 
+// Import routes
+const authRoutes = require('./routes/authRoutes');
+const habitRoutes = require('./routes/habitRoutes');
+
+// Use routes
 app.use('/api/auth', authRoutes);
 app.use('/api/habits', habitRoutes);
 

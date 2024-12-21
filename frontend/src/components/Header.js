@@ -1,12 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Nav = styled.nav`
   background-color: #007bff;
   padding: 1rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 `;
 
@@ -27,9 +27,9 @@ const Header = () => {
   return (
     <Nav>
       <NavLink to="/">Home</NavLink>
-      <NavLink to="/dashboard">Dashboard</NavLink>
       <NavLink to="/login">Login</NavLink>
       <NavLink to="/register">Register</NavLink>
+      <NavLink to="/dashboard">Dashboard</NavLink>
     </Nav>
   );
 };
