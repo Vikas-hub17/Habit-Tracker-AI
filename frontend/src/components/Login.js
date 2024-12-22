@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Container = styled.div`
   display: flex;
@@ -41,20 +42,43 @@ const Button = styled.button`
   }
 `;
 
+const Error = styled.p`
+  color: red;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+`;
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    localStorage.setItem('isLoggedIn', 'true');
-    navigate('/dashboard');
+    setError('');
+
+    try {
+      const response = await axios.post('http://localhost:5000/api/auth/login', {
+        email,
+        password,
+      });
+
+      const { token } = response.data;
+
+      // Store the token and redirect to the dashboard
+      localStorage.setItem('token', token);
+      navigate('/dashboard');
+    } catch (err) {
+      setError(err.response?.data?.message || 'Login failed. Please try again.');
+    }
   };
 
   return (
     <Container>
       <Form onSubmit={handleSubmit}>
+        <h2>Login</h2>
+        {error && <Error>{error}</Error>}
         <Input
           type="email"
           placeholder="Email"
