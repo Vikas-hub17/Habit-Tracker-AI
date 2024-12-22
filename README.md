@@ -97,43 +97,43 @@ git clone https://github.com/Vikas-hub17/habit-tracker.git
 cd habit-tracker
 ```
 
-### Backend Setup
+## Backend Setup
 
-## Navigate to the backend directory:
+### Navigate to the backend directory:
 ```bash
 cd backend
 ```
 
-## Install backend dependencies:
+### Install backend dependencies:
 ```bash
 npm install
 ```
 
-## Create a .env file in the backend directory with the following variables:
+### Create a .env file in the backend directory with the following variables:
 ```bash
 MONGO_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/habit_tracker?retryWrites=true&w=majority
 JWT_SECRET=<your_secret_key>
 PORT=5000
 ```
 
-## Start the backend server:
+### Start the backend server:
 ```bash
 node server.js
 ```
 
-### Frontend Setup
+## Frontend Setup
 
-## Navigate to the frontend directory:
+### Navigate to the frontend directory:
 ```bash
 cd ../frontend
 ```
 
-## Install frontend dependencies:
+### Install frontend dependencies:
 ```bash
 npm install
 ```
 
-## Start the frontend server:
+### Start the frontend server:
 ```bash
 npm start
 ```
