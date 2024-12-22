@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 
 const Container = styled.div`
   display: flex;
@@ -49,28 +48,24 @@ const Error = styled.p`
 `;
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  // Hardcoded credentials
+  const validEmail = 'user@example.com';
+  const validPassword = 'password123';
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setError('');
 
-    try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', {
-        email,
-        password,
-      });
+    const email = e.target.email.value;
+    const password = e.target.password.value;
 
-      const { token } = response.data;
-
-      // Store the token and redirect to the dashboard
-      localStorage.setItem('token', token);
+    if (email === validEmail && password === validPassword) {
+      // Simulate successful login by saving a token to localStorage
+      localStorage.setItem('token', 'sample-jwt-token');
       navigate('/dashboard');
-    } catch (err) {
-      setError(err.response?.data?.message || 'Login failed. Please try again.');
+    } else {
+      alert('Invalid email or password. Use: \nEmail: user@example.com\nPassword: password123');
     }
   };
 
@@ -78,21 +73,8 @@ const Login = () => {
     <Container>
       <Form onSubmit={handleSubmit}>
         <h2>Login</h2>
-        {error && <Error>{error}</Error>}
-        <Input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <Input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        <Input type="email" name="email" placeholder="Email" required />
+        <Input type="password" name="password" placeholder="Password" required />
         <Button type="submit">Login</Button>
       </Form>
     </Container>
