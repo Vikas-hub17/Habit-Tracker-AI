@@ -1,12 +1,14 @@
-# Habit Tracker
+![IMG_20241223_110843](https://github.com/user-attachments/assets/87815e34-af2e-4c25-8404-755941fff9a3)# Habit Tracker
 
 A full-stack habit tracking application that helps users manage their daily habits, track progress, and view performance charts. Built with **React.js**, **Node.js**, **Express.js**, and **MongoDB**.
 
 ![IMG_20241223_110836](https://github.com/user-attachments/assets/7c1d4f7e-5b0f-41da-8b59-964d617f7c2d)
 
-![Uploading IMG_20241223_110843.jpg…]()
+![IMG_20241223_110843](https://github.com/user-attachments/assets/b5da6590-58c2-4ee9-8443-08f209143882)
 
-![Uploading IMG_20241223_110817.jpg…]()
+
+![IMG_20241223_110817](https://github.com/user-attachments/assets/d4aad4c6-7e3b-4007-b603-f60c3b488134)
+
 
 ---
 
