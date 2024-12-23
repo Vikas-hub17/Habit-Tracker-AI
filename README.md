@@ -2,6 +2,12 @@
 
 A full-stack habit tracking application that helps users manage their daily habits, track progress, and view performance charts. Built with **React.js**, **Node.js**, **Express.js**, and **MongoDB**.
 
+![IMG_20241223_110836](https://github.com/user-attachments/assets/7c1d4f7e-5b0f-41da-8b59-964d617f7c2d)
+
+![Uploading IMG_20241223_110843.jpg…]()
+
+![Uploading IMG_20241223_110817.jpg…]()
+
 ---
 
 ## Features
